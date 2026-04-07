@@ -4,14 +4,48 @@
     <meta charset="UTF-8">
     <title>Simple Addition</title>
     <style>
-        body { font-family: sans-serif; display: flex; justify-content: center; padding-top: 50px; }
-        .container { border: 1px solid #ccc; padding: 20px; border-radius: 8px; box-shadow: 2px 2px 10px #eee; }
+        body { 
+            font-family: sans-serif; 
+            display: flex; 
+            justify-content: center; 
+            padding-top: 50px; 
+            margin: 0;
+            height: 100vh;
+            background-color: #f9f9f9;
+        }
+
+        /* Watermark Styling */
+        .watermark {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-45deg);
+            font-size: 8rem;
+            color: rgba(0, 0, 0, 0.05); /* Very light gray */
+            pointer-events: none; /* Allows clicking through the text */
+            z-index: -1; /* Places it behind the container */
+            user-select: none; /* Prevents text selection */
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        .container { 
+            background: white;
+            border: 1px solid #ccc; 
+            padding: 20px; 
+            border-radius: 8px; 
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.1); 
+            height: fit-content;
+        }
+        
         input { width: 60px; padding: 8px; margin: 5px; }
         button { padding: 8px 15px; cursor: pointer; background-color: #007bff; color: white; border: none; border-radius: 4px; }
         #result { font-weight: bold; color: #28a745; margin-left: 10px; }
     </style>
 </head>
 <body>
+
+<div class="watermark">ashlen</div>
 
 <div class="container">
     <h3>Add Two Numbers</h3>
@@ -24,14 +58,9 @@
 
 <script>
     function calculate() {
-        // Get values from inputs
         const val1 = parseFloat(document.getElementById('num1').value) || 0;
         const val2 = parseFloat(document.getElementById('num2').value) || 0;
-        
-        // Perform addition
         const sum = val1 + val2;
-        
-        // Display result
         document.getElementById('result').innerText = sum;
     }
 </script>
